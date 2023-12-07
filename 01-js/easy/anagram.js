@@ -5,7 +5,18 @@
 */
 
 function isAnagram(str1, str2) {
-
+	if (str1.length !== str2.length) {
+		return false;
+	}
+	str1 = str1.toLowerCase();
+	str2 = str2.toLowerCase();
+	let sum1 = 0, sum2 = 0;
+	let strLength = str1.length = str2.length;
+	for (let i = 0; i < strLength; i++) {
+		sum1 += str1.charCodeAt(i);
+		sum2 += str2.charCodeAt(i);
+	}
+	return (sum1 == sum2);
 }
 
 module.exports = isAnagram;
