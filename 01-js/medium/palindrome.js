@@ -4,7 +4,26 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase()
+  let newStr = ""
+  let newStrLength = 0
+  for(let i=0; i < str.length; i++) {
+    let ascii = str.charCodeAt(i)
+    if (ascii>=97 && ascii<=122) {
+      newStr += str[i]
+      newStrLength++
+    }
+  }
+  let backPtr = newStrLength - 1
+  for(let i = 0; i < newStrLength; i++) {
+    if (newStr[i] !== newStr[backPtr]) {
+      return false
+    }
+    backPtr--
+  }
+  return true
 }
+
+console.log(isPalindrome("hello"))
 
 module.exports = isPalindrome;
