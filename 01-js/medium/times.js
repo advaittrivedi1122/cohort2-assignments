@@ -9,5 +9,23 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let start = new Date()
+    let sum = 0
+    for (let i=1; i<=n; i++){
+        sum += i
+    }
+    console.log(`${n}! = ${sum}`)
+    let end = new Date()
+    return (end-start)/1000;
 }
+
+console.log(`1 took ${calculateTime(1)} seconds`)
+console.log(`10 took ${calculateTime(10)} seconds`)
+console.log(`100 took ${calculateTime(100)} seconds`)
+console.log(`1000 took ${calculateTime(1000)} seconds`)
+console.log(`10000 took ${calculateTime(10000)} seconds`)
+console.log(`1000000 took ${calculateTime(1000000)} seconds`)
+console.log(`10000000 took ${calculateTime(10000000)} seconds`)
+console.log(`100000000 took ${calculateTime(100000000)} seconds`)
+console.log(`1000000000 took ${calculateTime(1000000000)} seconds`)
+console.log(`10000000000 took ${calculateTime(1000000000)} seconds`)
