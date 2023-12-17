@@ -16,6 +16,66 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+    return;
+  }
+  add(num) {
+    this.result += num;
+    return;
+  }
+  subtract(num){
+    this.result -= num;
+    return;
+  }
+  multiply(num){
+    this.result *= num;
+    return;
+  }
+  divide(num){
+    this.result /= num;
+    return;
+  }
+  clear(){
+    this.result = 0;
+    return;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(expression){
+    let operators = []
+    let operands = []
+    let allowedCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    let allowedOperators = ['+', '-', '*', '/', '(',')']
+    let highPriorityOperators = ['*', '/']
+    let numStr = ""
+    // let stack = []
+    for (let i = 0; i < expression.length; i++){
+      let isAllowedCharacter = allowedCharacters.includes(expression[i])
+      let isAllowedOperator = allowedOperators.includes(expression[i])
+      if(!isAllowedCharacter || operators.length > operands.length){
+        throw new Error("invaild character",i)
+      }
+      if (isAllowedCharacter) {
+        numStr += expression[i]
+      }
+      else if (isAllowedOperator) {
+        switch (expression[i]) {
+          case "+":
+            if (operators.length > 0)
+            if (numStr){
+              operands.push(Number(numStr))
+            }
+            break;
+        
+          default:
+            break;
+        }
+      }
+    }
+  }
+}
 
 module.exports = Calculator;
